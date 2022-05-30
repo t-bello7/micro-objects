@@ -1,11 +1,6 @@
 const addBookForm = document.querySelector('.add-book-form');
 const bookContainer = document.querySelector('.books');
-let bookCollection = [
-  {
-    title: 'haa',
-    author: 'be',
-  },
-];
+let bookCollection = [];
 
 const renderElements = (arr, container) => {
   arr.forEach((element) => {
@@ -25,7 +20,8 @@ if (JSON.parse(localStorage.getItem('bookCollection')) != null) {
 renderElements(bookCollection, bookContainer);
 
 const book = {};
-addBookForm.elements.forEach((element) => {
+let bookForminputs = [...addBookForm.elements]
+bookForminputs.forEach((element) => {
   if (element.name === 'title') {
     element.addEventListener('change', (e) => {
       book.title = e.target.value;
