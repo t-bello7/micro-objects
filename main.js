@@ -1,14 +1,15 @@
 const addBookForm = document.querySelector('.add-book-form');
 const bookContainer = document.querySelector('.books');
-let bookCollection = [];
 
+let bookCollection = [];
 const renderElements = (arr, container) => {
-  arr.forEach((element) => {
+  container.innerHTML = '';
+  arr.forEach((element, index) => {
     container.innerHTML += `
           <div>
             <h2>${element.title}</h2>
             <p>${element.author}</p>
-            <button type="button"> Remove </button>
+            <button type="button" data-id=${index} onclick='removeElement(this)'> Remove </button>
           </div>`;
   });
 };
@@ -20,7 +21,7 @@ if (JSON.parse(localStorage.getItem('bookCollection')) != null) {
 renderElements(bookCollection, bookContainer);
 
 const book = {};
-let bookForminputs = [...addBookForm.elements]
+const bookForminputs = [...addBookForm.elements];
 bookForminputs.forEach((element) => {
   if (element.name === 'title') {
     element.addEventListener('change', (e) => {
@@ -41,3 +42,10 @@ addBookForm.addEventListener('submit', (e) => {
   localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
   addBookForm.submit();
 });
+// remove functionality
+const removeElement = (item) => {
+  bookCollection = bookCollection.filter((element) => element !== bookCollection[item.getAttribute('data-id')]);
+  renderElements(bookCollection, bookContainer);
+
+  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
+};
