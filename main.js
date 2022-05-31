@@ -43,9 +43,9 @@ addBookForm.addEventListener('submit', (e) => {
   addBookForm.submit();
 });
 // remove functionality
-const removeElement = (item) => {
+
+const removeElement = (item) => {    // eslint-disable-line
   bookCollection = bookCollection.filter((element) => element !== bookCollection[item.getAttribute('data-id')]);
   renderElements(bookCollection, bookContainer);
-
   localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
 };

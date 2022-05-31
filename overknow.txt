@@ -1,0 +1,13 @@
+function removeBook(item){
+  console.log("the item is", item);
+  console.log("the index is", item.getAttribute("data-id"));
+  books = books.filter((element) => element !== books[item.getAttribute("data-id")]);
+  main.innerHTML = ``;
+
+  // Fix the display 
+  for (let i = 0; i < books.length; i += 1) {
+    show(i);
+  } //// untill here
+}
+
+<button type='button' class="remove" data-id=${index} onclick="removeBook(this)">Remove</button>
