@@ -39,7 +39,7 @@ npx eslint .
 <!-- ### Deployment -->
 
 ## Resources
-- https://www.figma.com/file/l7SqJ3ZfkAKih9sFxvWSR4/Microverse-Student-Project-1?node-id=0%3A1
+- https://codepen.io/bradtraversy/pen/OrmKWZ
 
 ## Authors
 

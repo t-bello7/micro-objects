@@ -1,7 +1,34 @@
 const addBookForm = document.querySelector('.add-book-form');
 const bookContainer = document.querySelector('.books');
+const bookForminputs = [...addBookForm.elements];
+let title;
+let author;
 
-let bookCollection = [];
+class Book {
+  constructor(title, author){
+    this.title = title;
+    this.author = author;
+  }
+}
+
+class BookList{
+  static getBooks(){
+    let bookList = [];
+    if (localStorage.getItem('bookList') != null) {
+      bookList = JSON.parse(localStorage.getItem('bookList'));
+    }
+    return bookList;
+  }
+
+  static addBook(book){
+    const bookList = BookList.getBooks();
+    bookList.push(book);
+    localStorage.setItem('bookList', JSON.stringify(bookList));
+  }
+
+
+}
+
 const renderElements = (arr, container) => {
   container.innerHTML = '';
   arr.forEach((element, index) => {
@@ -14,38 +41,36 @@ const renderElements = (arr, container) => {
   });
 };
 
-if (JSON.parse(localStorage.getItem('bookCollection')) != null) {
-  bookCollection = JSON.parse(localStorage.getItem('bookCollection'));
-}
-
-renderElements(bookCollection, bookContainer);
-
-const book = {};
-const bookForminputs = [...addBookForm.elements];
 bookForminputs.forEach((element) => {
   if (element.name === 'title') {
     element.addEventListener('change', (e) => {
-      book.title = e.target.value;
+       title = e.target.value;
     });
   }
   if (element.name === 'author') {
     element.addEventListener('change', (e) => {
-      book.author = e.target.value;
+      author = e.target.value;
     });
   }
 });
 
+
 addBookForm.addEventListener('submit', (e) => {
   e.preventDefault();
-
-  bookCollection.push(book);
-  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
+  let book = new Book(title, author)
+  BookList.addBook(book)
   addBookForm.submit();
 });
 // remove functionality
+let bookList = BookList.getBooks()  
+renderElements(bookList, bookContainer);
 
 const removeElement = (item) => {    // eslint-disable-line
-  bookCollection = bookCollection.filter((element) => element !== bookCollection[item.getAttribute('data-id')]);
-  renderElements(bookCollection, bookContainer);
-  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
+  bookList = bookList.filter((element) => element !== bookList[item.getAttribute('data-id')]);
+  renderElements(bookList, bookContainer);
+  localStorage.setItem('bookList', JSON.stringify(bookList));
 };
+
+
+// add eventlister on the remove button
+// BookList.removeBook(item)
