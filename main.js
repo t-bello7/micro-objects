@@ -4,8 +4,7 @@ const bookForminputs = [...addBookForm.elements];
 let title;
 let author;
 
-class Book {
-  constructor(title, author){
+class Book{  constructor(title, author) {
     this.title = title;
     this.author = author;
   }
@@ -25,9 +24,16 @@ class BookList{
     bookList.push(book);
     localStorage.setItem('bookList', JSON.stringify(bookList));
   }
-
-
+  
+  static removeElement = (item) => {    // eslint-disable-line
+    const bookList = BookList.getBooks();
+    bookList = bookList.filter((element) => element !== bookList[item.getAttribute('data-id')]);
+    renderElements(bookList, bookContainer);
+    localStorage.setItem('bookList', JSON.stringify(bookList));
+  };
 }
+// let bookList = BookList.getBooks();
+// renderElements(bookList, bookContainer);
 
 const renderElements = (arr, container) => {
   container.innerHTML = '';
@@ -44,7 +50,7 @@ const renderElements = (arr, container) => {
 bookForminputs.forEach((element) => {
   if (element.name === 'title') {
     element.addEventListener('change', (e) => {
-       title = e.target.value;
+      title = e.target.value;
     });
   }
   if (element.name === 'author') {
@@ -54,23 +60,12 @@ bookForminputs.forEach((element) => {
   }
 });
 
-
 addBookForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  let book = new Book(title, author)
-  BookList.addBook(book)
+  const book = new Book(title, author);
+  BookList.addBook(book);
   addBookForm.submit();
 });
 // remove functionality
-let bookList = BookList.getBooks()  
-renderElements(bookList, bookContainer);
-
-const removeElement = (item) => {    // eslint-disable-line
-  bookList = bookList.filter((element) => element !== bookList[item.getAttribute('data-id')]);
-  renderElements(bookList, bookContainer);
-  localStorage.setItem('bookList', JSON.stringify(bookList));
-};
-
-
 // add eventlister on the remove button
 // BookList.removeBook(item)
