@@ -11,18 +11,46 @@
 </head>
 
 <body>
-    <h1>Awesome Books</h1>
-    <div class="books">
+    <nav>
+        <span>Awesome Books</span>
+        <ul>
+            <li class="link"> list  </li>
+            <li class="link"> Add New </li>
+            <li class="link"> Contact </li>
+        </ul>
+    </nav>
+    <main class="main-section">
+        <section>
+            <h1>Awesome Books</h1>
+            <div class="books">
 
-    </div>
-    <form class="add-book-form">
-        <label for="title" class="sr-only">Title</label>
-        <input type="text" name="title" id="title" placeholder="Title"><br />
-        <label for="author" class="sr-only">Author</label><br />
-        <input type="text" name="author" id="author" placeholder="Author">
-        <button type="submit">Add</button>
-    </form>
+            </div>
+        </section>
+        <section class="not-visible">
+            <form class="add-book-form">
+                <label for="title" class="sr-only">Title</label>
+                <input type="text" name="title" id="title" placeholder="Title"><br />
+                <label for="author" class="sr-only">Author</label><br />
+                <input type="text" name="author" id="author" placeholder="Author">
+                <button type="submit">Add</button>
+            </form>        
+        </section>
+        <section class="not-visible">
+            <h2> Contact information </h2>
+            <p> Do you have any question or you want to say Hello ? <br> You can reach out to us </p>
+            <ul>
+                <li> Our email mail@mail.com </li>
+                <li> Our Phone Number : 00044554</li>
+                <li> Our Address : somewhere in space </li>
+            </ul>
+        </section>
+    </main>
 
+    <footer>
+        <span> Copyright </span>
+    </footer>
+    
+    
     <script src="./main.js"></script>
 </body>
 </html>

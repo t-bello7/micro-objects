@@ -3,6 +3,23 @@
 const addBookForm = document.querySelector('.add-book-form');
 const bookContainer = document.querySelector('.books');
 const bookForminputs = [...addBookForm.elements];
+const mainSection = document.querySelector('.main-section');
+const links = document.querySelectorAll('.link');
+
+let linkarr = [...links]
+let sections = [...mainSection.children]
+linkarr.forEach((element, index)=>{
+  let index1 = index
+  element.addEventListener('click', ()=>{
+    sections.forEach((element, index) => {
+      if (index1 == index){
+        element.classList.remove('not-visible')
+      }else{
+        element.classList.add('not-visible')
+      }
+    })
+  })
+})
 
 let title;
 let author;
