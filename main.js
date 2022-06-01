@@ -12,7 +12,7 @@ class Book {
 }
 
 class BookList{
-  static getBooks(){
+  static getBooks = () =>{
     let bookList = [];
     if (localStorage.getItem('bookList') != null) {
       bookList = JSON.parse(localStorage.getItem('bookList'));
@@ -20,7 +20,7 @@ class BookList{
     return bookList;
   }
 
-  static addBook(book){
+  static addBook = (book) => {
     const bookList = BookList.getBooks();
     bookList.push(book);
     localStorage.setItem('bookList', JSON.stringify(bookList));
