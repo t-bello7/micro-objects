@@ -9,3 +9,71 @@
   white-space: nowrap;
   border: 0;
 }
+
+.not-visible {
+  display: none;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  border: 2px solid;
+}
+
+.all {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  list-style: none;
+}
+
+.main-section {
+  padding-top: 49px;
+}
+
+.title {
+  padding-left: 500px;
+}
+
+.books {
+  border: 2px solid;
+}
+
+.book-element {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.book-element:nth-child(odd) {
+  background: lightgrey;
+}
+
+.add-book-form {
+  padding-top: 150px;
+  padding-left: 400px;
+}
+
+.button {
+  margin-left: 138px;
+  margin-top: 8px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 62px;
+}
+
+footer {
+  position: fixed;
+  bottom: 15px;
+  border: 2px solid;
+  width: 100%;
+}
