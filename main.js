@@ -12,7 +12,7 @@ linkarr.forEach((element, index) => {
   const index1 = index;
   element.addEventListener('click', () => {
     sections.forEach((element, index) => {
-      if (index1 == index) {
+      if (index1 === index) {
         element.classList.remove('not-visible');
       } else {
         element.classList.add('not-visible');
