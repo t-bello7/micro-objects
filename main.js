@@ -1,3 +1,5 @@
+/* eslint max-classes-per-file: ["error", 2] */
+
 const addBookForm = document.querySelector('.add-book-form');
 const bookContainer = document.querySelector('.books');
 const bookForminputs = [...addBookForm.elements];
@@ -24,7 +26,7 @@ class Book {
   }
 }
 
-class BookList { //disable-eslint
+class BookList {
   static getBooks = () => {
     let bookList = [];
     if (localStorage.getItem('bookList') != null) {
