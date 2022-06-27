@@ -91,5 +91,6 @@ renderElements(bookList, bookContainer);
 
 bookContainer.addEventListener('click', (e) => {
   const removeBtn = e.target.closest('.btn-rm');
+  console.log(removeBtn);
   BookList.removeBook(removeBtn.getAttribute('data-id'));
 });

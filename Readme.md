@@ -3,8 +3,7 @@
 
 # Micro Objects
 
-> A showcase of my ability as a developer is carefully displayed on this portfolio.
-
+> A single page application.
 ## Built With
 
 - HTML5
@@ -14,7 +13,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://t-bello7.github.io/micro-portfolio/)
+[Live Demo Link](https://t-bello7.github.io/micro-objects/)
 
 
 ## Getting Started
